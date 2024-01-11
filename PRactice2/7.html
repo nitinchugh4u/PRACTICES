@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+    // map filter reduce
+
+
+// let arr = [1,2,3,4,5,6]
+// let res = arr.map((item)=>{
+//     console.log(item)
+//     return item*2
+
+
+// })
+
+// console.log(res)
+
+
+
+
+// polyfill of map
+
+let array = [1,2,3,4,5,6]
+Array.prototype.myMap = function (cb){
+    let resArr =[]
+    console.log(array);
+    console.log(this)
+    for(let i =0; i < array.length; i++){
+        resArr.push(cb(array[i]))
+
+    }
+    return resArr
+
+
+
+}
+
+
+let output = array.myMap((item)=>{
+    return item*2
+})
+
+console.log("output",output)
+
+
+
+
+
+
+
+
+// filter 
+
+
+
+let filter = array.filter((item)=>{
+    return item %2 === 0
+
+})
+
+console.log(filter)
+
+
+
+// polyfill of filter 
+
+
+Array.prototype.myFilter = function(cb){
+    let newArr = []
+    for(let i =0; i<array.length; i++){
+        if(cb(array[i])){
+            newArr.push(array[i])
+
+        }
+        
+
+    }
+    return newArr;
+
+}
+
+const outputt= array.myFilter((item)=>{
+    return item%2===0
+
+})
+console.log("outputt",outputt)
+
+
+
+
+
+
+// reduce 
+
+let ress = array.reduce((acc,curr)=>{
+
+acc= acc+ curr;
+return acc;
+
+},0)
+
+console.log("ress",ress)
+
+
+
+
+// polyfill of reduce
+
+Array.prototype.myReduce =  function(cb,initialValue){
+    // console.log("cb",cb,"initial",initialValue)
+    let acc = initialValue;
+    for(let i=0; i<array.length; i++){
+       acc = acc ?  cb(acc,array[i]) : array[i]
+
+    }
+
+    return  acc
+
+}
+ let final =array.myReduce((acc,curr)=>{
+    acc= acc + curr
+    return acc
+
+},0)
+console.log("final",final)
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

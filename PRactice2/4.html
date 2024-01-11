@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<script>
+
+    // let creatte piizzaa
+    // cheese
+    // dough
+    // pizza
+
+
+function cheese(callback){
+    setTimeout(()=>{
+        const cheese = "🧀";
+        console.log("here is the cheese")
+        callback(cheese)
+
+
+    },2000)
+ }
+
+  function dough(cheese,callback){
+    setTimeout(()=>{
+        const dough = cheese + "🍩"
+
+
+        console.log("here is the dough")
+        callback(dough)
+
+
+
+    },2000)
+}
+
+    function pizza(dough,callback){
+        setTimeout(()=>{
+            const pizza = dough +"🍕" 
+            console.log("here is the pizza ")
+            callback(pizza)
+
+
+        },2000)
+
+    }
+
+
+
+
+  
+
+  cheese((cheese)=>{
+    // console.log("we  get the cheese", cheese)
+    dough(cheese,(dough)=>{
+        // console.log("dough",dough)
+        pizza(dough,(pizza)=>{
+            console.log("here is our pizza", pizza)
+        })
+
+    })
+
+})
+
+
+
+   
+
+
+
+
+</script>

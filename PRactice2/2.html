@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+// 1st way
+let promise1  = new Promise((resolve,reject)=>{
+    console.log("promise1 is running")
+
+    setTimeout(()=>{
+        console.log("run after 5 sec")
+        resolve()
+
+    },5000)
+
+})
+
+console.log(promise1);
+
+
+promise1.then((data)=>{
+    console.log("data",data)
+    console.log("promise consumed")
+})
+
+
+
+
+// 2 Way
+
+new Promise ((resolve,reject)=>{
+    console.log("promise2")
+    setTimeout(()=>{
+        console.log("run after 3 sec")
+        resolve()
+    },3000)
+
+}).then((data)=>{
+    console.log("data",data)
+    console.log("promise 2 consumed")
+})
+
+
+
+
+
+// 3 way
+
+
+
+let promise3 = new Promise((resolve,reject)=>{
+    console.log("promise 3 is running")
+    setTimeout(()=>{
+        console.log("run after 2 sec")
+        resolve({names:"nitin", city: "delhi"})
+    },2000)
+})
+
+promise3.then((data)=>{
+    console.log("data",data)
+    // console.log(data.names)
+    console.log("promise 3 consumed")
+    return data
+
+})
+
+// 4 way
+
+
+const promise4 = new Promise((resolve,reject)=>{
+    console.log("Promise 4 is running")
+
+
+    setTimeout(()=>{
+        console.log("run after 1 sec")
+        resolve({names:"Rahul",city:"chandigarh"})
+    },1000)
+
+})
+
+promise4.then((data)=>{
+    console.log("data",data)
+    return data.city
+
+}).then((data)=>{
+    console.log("data",data)
+    return "hello"
+})
+.then((data)=>{
+    console.log("data",data)
+
+})
+.catch((error)=>{
+    console.log("error",error)
+
+})
+
+
+
+
+
+const promise5 =  new Promise((resolve,reject)=>{
+    console.log("promise 5 is running")
+    
+    
+    setTimeout(()=>{
+        let workFinish = true
+        workFinish = false
+        
+        if(workFinish){
+        resolve({Work: "finished"})
+
+    }else{
+        reject({work:"not finished"})
+    }
+
+},1000)
+})
+promise5.then((data)=>{
+    console.log("data",data)
+}).catch((error)=>{
+    console.log("error aaya",error)
+
+})
+.finally(()=>{
+
+    console.log("yes finallly done")
+
+})
+
+
+
+
+
+
+
+const promise6 = new Promise((resolve,reject)=>{
+    console.log("promise 6 is running")
+
+      setTimeout(()=>{
+        let operation = true;
+        operation = false
+        if(operation){
+            resolve({operation: "done",})
+
+        }else{
+            reject("operation not done")
+        }
+        console.log("run after 1 second")
+    },1000)
+})
+
+async function Asynf(){
+    try{
+    let store = await promise6
+    console.log(store)
+   let  store1 = await store.operation;
+    console.log(store1)
+}
+
+   catch(error){
+   
+    console.log("error",error)
+}
+
+}
+Asynf()
+
+
+
+
+
+
+async function Asynff(){
+
+    try{
+        let store = await fetch('https://fakestoreapi.com/product')
+    let store1 = await  store.json()
+    console.log("store1",store1)
+    
+
+    }
+    catch(error){
+        console.log("error occur",error)
+    }
+   
+    
+
+}
+
+Asynff()
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

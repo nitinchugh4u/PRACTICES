@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+    // polyfill of map filter and reduce
+
+    let arr = [1,2,3,4,5,6]
+    let  Arr1 = arr.map((item)=>{
+        return item*2
+
+    })
+    console.log(Arr1)
+
+
+
+    let  Arr2 = arr.filter((item)=>{
+        
+         if(item%2==0){
+            return item
+
+         }
+
+    })
+    console.log(Arr2)
+
+
+
+
+    
+    let  Arr3 = arr.reduce((sum,curren)=>{
+        
+        sum = sum + curren
+
+        return sum
+
+   },0)
+
+   console.log("arr3",Arr3)
+
+
+</script>

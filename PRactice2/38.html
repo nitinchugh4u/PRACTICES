@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+
+        <ul id="category">
+            <li id="tv">TV</li>
+            <li id="laptop">LAPTOP</li>
+            <li id="mobile">MOBILE</li>
+        </ul>
+
+
+    </div>
+    
+</body>
+</html>
+
+
+<script>
+
+    document.querySelector("#category")
+    .addEventListener("click",(e)=>{
+        
+        console.log("yes they clicked me")
+        console.log(e.target.id)
+        if(e.target.tagName == "Li"){
+        window.location.href = "/" + e.target.id;
+        }
+    })
+
+
+
+
+
+</script>

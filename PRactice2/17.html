@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+let array = [1,2,3,4,5,6]
+const resultant = array.map((item)=>{
+    return  item*2
+
+})
+console.log(resultant)
+
+
+
+
+
+Array.prototype.myMap =function(cb){
+    let res = []
+    for(let i =0; i<this.length; i++){
+        res.push(cb(this[i]))
+    }
+    return res;
+
+}
+
+
+let x = array.myMap((item)=>{
+   return item*10
+})
+console.log("x",x)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

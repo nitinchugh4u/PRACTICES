@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" onkeyup="betterFunction()">
+
+</body>
+
+</html>
+
+<script>
+    // debouncing
+    // to avoid  multiplw api call we use debouncing
+    let count = 0;
+    function getData() {
+        console.log("Call the API", count++);
+
+    }
+
+    const magicFunction = function (fn, delay) {
+        console.log("work")
+        let timer;
+        return function () {
+            console.log("yoyo")
+            let context = this;
+            // console.log("contxt",context)
+            args = arguments;
+            // console.log("args",args)
+            clearTimeout(timer)
+            
+            timer = setTimeout(() => {
+                console.log("mai late chalunga")
+                getData.apply(context, args)
+
+            }, delay)
+        }
+    }
+
+
+    const betterFunction = magicFunction(getData, 300)
+    console.log(betterFunction)
+
+
+
+
+
+
+
+
+
+</script>

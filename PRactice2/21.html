@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=], initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+    let object = {
+    firstName: " nitin",
+    lastName: " chugh"
+    }
+
+    function printFullName(city, study){
+
+        console.log(this.firstName + this.lastName + city + study)
+
+
+    }
+
+
+  printFullName.call(object,"delhi", "btech")
+
+  printFullName.apply(object,["mumbai","bca"])
+
+ let res =  printFullName.bind(object,"kolkata", "mba")
+ res();
+
+
+
+
+//  mybind
+
+
+Function.prototype.myBind = function (scope,...args){
+    console.log("scope",scope)
+    scope._this = this;
+    return function (){
+        scope._this(...args)
+
+        
+
+    }
+
+
+}
+
+
+let store =printFullName.myBind(object,"mumbai", "mtech")
+store()
+
+
+
+
+// call
+
+
+Function.prototype.myapply = function(scope,args){
+    scope._this = this;
+    return scope._this(...args)
+
+
+
+}
+
+printFullName.myapply(object,["pune","mba"])
+
+
+
+
+
+</script>

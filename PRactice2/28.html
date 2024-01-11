@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    // call bind and apply
+
+
+// call 
+
+let object = {
+    firstName: "nitin",
+    lastName: "chugh"
+}
+
+function printFullName(city,study){
+    console.log(this.firstName+" " + this.lastName + " " + city + " " +  study)
+    
+}
+printFullName.call(object,"delhi","btech")
+
+
+
+// polyfill of call
+
+Function.prototype.myCall = function(scope,...args){
+    // console.log("this",this)
+    // console.log("scope",scope)
+    scope.key= this;
+    return scope.key(...args) 
+
+}
+
+printFullName.myCall(object,"pune","bca")
+
+
+
+
+// apply
+
+
+printFullName.apply(object,["goa","mtech"])
+
+
+
+
+
+
+// polyfill of apply
+
+
+Function.prototype.myApply = function(scope,args){
+    scope.key = this
+    return scope.key(...args)
+
+}
+
+printFullName.myApply(object,["bangalore","mca"])
+
+
+
+
+
+// bind
+
+let x = printFullName.bind(object,"punjab","mba")
+x()
+
+
+
+
+// polyfilll of bind
+
+Function.prototype.myBind= function (scope,...args){
+    scope.key = this
+
+    return function(){
+        scope.key(...args)
+
+
+    }
+
+
+}
+
+let y = printFullName.myBind(object,"dubai","bcom")
+y()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+

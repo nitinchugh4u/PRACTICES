@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+
+
+let array = [1,2,3,4,5];
+let res = array.reduce((acc,curr)=>{
+    acc = acc+curr
+    return acc;
+
+
+},0)
+
+console.log(res);
+
+
+
+
+
+
+Array.prototype.myReduce =  function(cb,initialValue){
+    let acc = initialValue;
+    for(let i =0; i<this.length; i++){
+        acc= acc ? cb(acc,this[i]) : this[i];
+
+
+    }
+    return acc;
+    
+
+
+}
+
+let res1 = array.myReduce((acc,curr)=>{
+   return acc= acc+curr;
+
+},0)
+console.log("res1",res1)
+
+
+
+
+
+
+</script>

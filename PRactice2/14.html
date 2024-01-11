@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+// let x   = fetch('https://fakestoreapi.com/products')
+// // console.log(x);
+// .then((data)=>{
+//  return data.json();
+// })
+// .then((data)=>{
+//     console.log(data);
+// })
+// .catch((error)=>{
+//     console.log("error aagya",error)
+
+// })
+
+// console.log("hello")
+
+
+
+
+// async function getData(){
+//    let response = await fetch('https://fakestoreapi.com/products')
+//   let response2 = await response.json()
+//   console.log(response2);
+//   console.log("hello")
+
+// }
+// getData()
+
+
+
+
+// let promise = new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         console.log("promise is working")
+//         resolve("20")
+
+
+//     },3000)
+
+// })
+// promise.then((data)=>{
+//     console.log("Data",data)
+
+// })
+// .catch((error)=>{
+//     console.log("error")
+
+// })
+
+
+
+
+
+
+
+// let promise1 = new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         console.log("promise is working")
+//         reject("20")
+
+
+//     },3000)
+
+// })
+// promise1.then((data)=>{
+//     console.log("Data",data)
+
+// })
+// .catch((error)=>{
+//     console.log("error",error)
+
+// })
+
+
+
+
+
+// let promise2 = new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         console.log("promise is working")
+        
+//         reject("20")
+
+
+//     },3000)
+
+// })
+// promise2.then((data)=>{
+//     console.log("Data",data)
+
+// })
+// .catch((error)=>{
+//     console.log("error",error)
+
+// })
+
+
+
+// let promise3 = new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         console.log("promise is working")
+        
+//         resolve({city: "delhi"})
+
+
+//     },3000)
+
+// })
+// promise3.then((data)=>{
+//     console.log("Data",data)
+//     return data.city;
+
+// })
+// .then((data)=>{
+//     console.log(data);
+
+// })
+// .catch((error)=>{
+//     console.log("error",error)
+
+// })
+
+
+
+
+
+let promise4 = new Promise((resolve,reject)=>{
+    console.log("promise 4 is working")
+
+    fetch('https://fakestoreapi.com/products')
+    .then((data)=>{
+        return data.json()
+    })
+    .then((data)=>{
+        console.log("data milgya",data);
+        resolve(data)
+
+    })
+    .catch((error)=>{
+        console.log("error bhi aagya",error);
+        reject(error)
+    })
+})
+
+promise4.then((data)=>{
+    console.log("aagya mai",data)
+    return "operation is suucess"
+})
+.then((data)=>{
+    console.log(data);
+})
+.catch((error)=>{
+    console.log("error bhi hai", error)
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

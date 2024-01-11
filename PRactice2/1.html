@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+
+    function getProducts1() {
+        let x = fetch('https://fakestoreapi.com/products')
+
+            //   console.log("x",x);
+
+            .then((data) => {
+                console.log("x", data)
+                return data.json()
+            })
+            .then((data) => {
+                console.log("data", data)
+            })
+            .catch((error) => {
+                console.log("error hai", error)
+
+            })
+
+        console.log("also run this line")
+    }
+
+
+    getProducts1()
+
+    console.log("end of first")
+
+
+
+   
+   
+   
+   
+    async function getProducts2() {
+        console.log("asnc Function run")
+        try{
+
+        let y = await fetch('https://fakestoreapi.com/products')
+
+        console.log("y", y);
+        let data = await y.json()
+        console.log("dataa", data);
+
+        console.log("run this line")
+        }
+        
+        catch(error){
+            console.log("error aagya",error);
+
+        }
+        console.log("hello")
+        return 100
+
+        
+    }
+
+    let store =getProducts2()
+    console.log(store)
+    store.then((data)=>{
+        console.log(data);
+
+    })
+    
+
+    console.log("end of 2nd")
+
+
+
+
+
+</script>

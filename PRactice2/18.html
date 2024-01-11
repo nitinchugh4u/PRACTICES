@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<script>
+
+let array = [1,2,3,4,5,6]
+
+
+let res = array.filter((item)=>{
+    return item%2 == 0
+})
+console.log(res);
+
+
+
+
+
+
+Array.prototype.myFilter = function (cb){
+    let Array1 = []
+
+    for(let i =0; i<this.length; i++){
+        if(cb(this[i])){
+            Array1.push((this[i]))
+
+        }
+
+
+
+    }
+    return Array1;
+
+
+}
+
+let res1 = array.myFilter((item)=>{
+
+    return item%2 == 0
+})
+
+console.log("myfilter",res1)
+
+
+
+
+</script>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+fetch("https://fakestoreapi.com/products")
+.then((data)=>{
+    console.log("data",data)
+     return data.json()
+})
+.then((data)=>{
+    console.log("data",data)
+})
+.catch((data)=>{
+    console.log("data",data)
+
+})
+
+async function AsyncF(){
+
+   const result = await fetch("https://fakestoreapi.com/products")
+   console.log("result",result)
+
+//    const final = await result.json()
+
+   try{
+    const final = await result.json()
+    console.log("final output",final);
+
+   }
+   catch(error){
+    console.log("errorrrr",error)
+
+   }
+}
+AsyncF()
+
+
+
+
+
+
+
+
+</script>
