@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+    // call
+    let object = {
+        Fname: "nitin",
+        Lname: "chugh",
+     }
+
+     function add(){
+        console.log(this)
+        console.log(this.Fname)
+        console.log(this.Lname)
+    }
+     add()
+
+    //  call
+
+    add.call(object);
+
+
+    function sub(state,study){
+        console.log("sub")
+        console.log(this.Fname)
+        console.log(this.Lname)
+        console.log(state)
+        console.log(study)
+    }
+
+    sub.call(object,"delhi","btech")
+
+
+   Function.prototype.mycall = function(scope,...args){
+    console.log("my call is running")
+    console.log("this",this)
+    console.log(scope)
+    scope.key = this;
+    console.log(scope.key)
+    return scope.key(...args)
+
+
+
+   }
+   
+   
+    sub.mycall(object,"goa","bca")
+
+
+
+
+
+
+
+    // bind
+
+
+    let obj3 ={
+        fname: "yoyo",
+        lname: "honeysingh"
+    }
+
+    function Fullname(state,study){
+        console.log("fullname")
+        console.log(this.fname)
+        console.log(this.lname)
+        console.log("state",state)
+        console.log("study",study)
+    }
+    Fullname.apply(obj3,["newDelhi","mtech"])
+
+    
+    
+    Function.prototype.myApply = function(scope,args){
+    console.log(this)
+    scope.key = this;
+    // console.log("...args",...args)
+    console.log("args",args)
+
+    return scope.key(...args)
+        
+
+
+    }
+
+
+
+    Fullname.myApply(obj3,["goa","mca"])
+
+
+
+
+    // bind
+
+
+
+
+    let object5  ={
+    fName: "neha",
+    lName: "arora"
+    }
+
+    function print(state,study){
+        console.log("print")
+        console.log(this.fName)
+        console.log(this.lName)
+        console.log(state)
+        console.log(study)
+    }
+
+   let res = print.bind(object5)
+   res()
+
+
+
+
+   Function.prototype.nyBind = function(scope,...args){
+    console.log("scope",scope)
+    console.log("this",this)
+    scope.key = this
+
+    return function(){
+        scope.key(...args)
+
+
+    }
+
+
+
+
+
+   }
+
+let ress = print.nyBind(object5,"pune","bcom")
+ress()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
