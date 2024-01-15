@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul id="list" >
+        <li id="books">books</li>
+        <li id="library">library</li>
+        <li id="study">study</li>
+    </ul>
+    
+</body>
+</html>
+
+
+
+
+<script>
+    
+    document.getElementById("list").addEventListener("click",(e)=>{
+        console.log("list is clicked")
+       if(e.target.tagName=='LI'){
+        console.log(e.target);
+        console.log(e.target.id)
+        window.location.href = "/" +e.target.id
+       }
+        // window.location.href = "/" + e.target.id
+    })
+
+
+
+
+
+
+
+
+
+
+</script>

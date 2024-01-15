@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <input type="text" onkeyup="x()">
+</head>
+<body>
+    
+</body>
+</html>
+
+
+
+
+<script>
+
+    function callApi(){
+        console.log("call the api")
+
+    }
+
+
+   const magicFunction = function(fn,delay){
+    let flag=true;
+
+   return function (){
+    
+
+    let context = this;
+    args = arguments
+    
+    if(flag){
+        fn.apply(context,args)
+        flag =false;
+    
+    setTimeout(()=>{
+        flag =true
+
+    },delay)
+}
+
+
+}
+
+    
+
+   }
+    
+    
+    let x = magicFunction(callApi,5000)
+
+
+
+
+
+
+
+
+
+
+</script>

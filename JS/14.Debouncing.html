@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <input type="text" onkeyup="x()">
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    let count =0;
+
+function callApi(){
+        console.log("call the api ", count++)
+    }
+
+const magicFunction = function(fn,delay){
+    console.log("magic function is running")
+    let timer
+    return function (){
+        console.log("function is returning")
+        let scope = this;
+         args = arguments
+        clearTimeout(timer)
+        
+
+        timer = setTimeout(()=>{
+            fn.apply(scope,...args)
+
+         },delay)
+    }
+}
+    
+    
+const x =    magicFunction(callApi,300)
+
+
+
+
+
+
+
+
+
+</script>
+
